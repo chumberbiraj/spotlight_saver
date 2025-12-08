@@ -2,7 +2,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-echo script by Orange
+echo script by Ornage
 
 ::Check and make a directory "copy" to Temporary store image for processing and filtering
 if not exist "C:\Users\%USER%\Desktop\copy" (
@@ -65,3 +65,4 @@ set folder_status=empty
 endlocal
 
 pause
+
