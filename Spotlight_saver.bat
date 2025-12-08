@@ -1,8 +1,13 @@
-::PROGRAMMER:)Orange
+::PROGRAMMER:)Ornage
 @echo off
 setlocal enabledelayedexpansion
 
 echo script by Orange
+
+::Check and make a directory "copy" to Temporary store image for processing and filtering
+if not exist "C:\Users\%USER%\Desktop\copy" (
+    mkdir "C:\Users\%USER%\Desktop\copy" & echo creating temp directory sucessfull
+) 
 
 ::This the folder where spotlight stores its files
 cd "C:\Users\%USER%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
@@ -23,14 +28,6 @@ if folder_status equ accupied (
 )
 )
 
-
-::Check and make a directory "copy" to Temporary store image for processing and filtering
-if exist "C:\Users\%USER%\Desktop\copy" (
-    echo Starting processing
-) else (
-    mkdir "C:\Users\%USER%\Desktop\copy"
-    echo Staring processing
-)
 
 
 cd "C:\Users\%USER%\Desktop\copy"
@@ -68,4 +65,3 @@ set folder_status=empty
 endlocal
 
 pause
-
