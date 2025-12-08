@@ -7,6 +7,7 @@ echo script by Orange
 ::This the folder where spotlight stores its files
 cd "C:\Users\%USER%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
 
+
 ::copy every file more the 200KB and add ".jpg" extension
 if folder_status equ accupied (
     echo folder already accupied
@@ -20,6 +21,15 @@ if folder_status equ accupied (
         echo "insficent size"
     )
 )
+)
+
+
+::Check and make a directory "copy" to Temporary store image for processing and filtering
+if exist "C:\Users\%USER%\Desktop\copy" (
+    echo Starting processing
+) else (
+    mkdir "C:\Users\%USER%\Desktop\copy"
+    echo Staring processing
 )
 
 
@@ -58,3 +68,4 @@ set folder_status=empty
 endlocal
 
 pause
+
