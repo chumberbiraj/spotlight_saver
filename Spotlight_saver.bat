@@ -1,11 +1,11 @@
-::PROGRAMMER:)BIRAJ_CHUMBER
+::PROGRAMMER:)Orange
 @echo off
 setlocal enabledelayedexpansion
 
-echo script by Biraj Chumber
+echo script by Orange
 
 ::This the folder where spotlight stores its files
-cd "C:\Users\omsai\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
+cd "C:\Users\%USER%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
 
 ::copy every file more the 200KB and add ".jpg" extension
 if folder_status equ accupied (
@@ -14,8 +14,8 @@ if folder_status equ accupied (
     for %%p in (*) do (
     set folder_status=accupied
     if %%~zp gtr 204800 (
-        copy "%%p" "C:\Users\omsai\Desktop\copy"
-        ren "C:\Users\omsai\Desktop\copy\%%p" "s%%p%date%.jpg"
+        copy "%%p" "C:\Users\%USER%\Desktop\copy"
+        ren "C:\Users\%USER%\Desktop\copy\%%p" "s%%p%date%.jpg"
     ) else (
         echo "insficent size"
     )
@@ -23,7 +23,7 @@ if folder_status equ accupied (
 )
 
 
-cd "C:\Users\omsai\Desktop\copy"
+cd "C:\Users\%USER%\Desktop\copy"
 
 for %%i in (*.jpg) do (
     powershell -command ^
@@ -47,13 +47,14 @@ for %%i in (*.jpg) do (
     )
 )
 
-start explorer.exe "C:\Users\omsai\Desktop\copy"
+start explorer.exe "C:\Users\%USER%\Desktop\copy"
 set /p f="Please filter the image by your preference and press Enter"
 ::Copies the image(s) to pictures
-for %%r in (*.jpg) do (copy "%%r" "C:\Users\omsai\Pictures")
+for %%r in (*.jpg) do (copy "%%r" "C:\Users\%USER%\Pictures")
 ::deleting temp files
 for %%d in (*) do (del %%d)
 
 set folder_status=empty
 endlocal
+
 pause
