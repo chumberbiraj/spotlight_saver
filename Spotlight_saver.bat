@@ -4,6 +4,9 @@ setlocal enabledelayedexpansion
 
 echo script by CHUMBER
 
+::Change the drive value to C:
+C:
+
 ::Check and make a directory "copy" to Temporary store image for processing and filtering
 if not exist "C:\Users\%USERNAME%\Desktop\copy" (
     mkdir "C:\Users\%USERNAME%\Desktop\copy" & echo creating temp directory sucessfull
