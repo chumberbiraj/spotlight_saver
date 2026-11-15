@@ -1,5 +1,4 @@
 ::PROGRAMMER:)CHUMBERBIRAJ
-::VERSION=1.2
 @echo off
 setlocal enabledelayedexpansion
 
@@ -15,20 +14,15 @@ cd "C:\Users\%USERNAME%\AppData\Local\Packages\Microsoft.Windows.ContentDelivery
 
 
 ::copy every file more the 200KB and add ".jpg" extension along with current date and time to the filename
-if folder_status equ accupied (
-    echo folder already accupied
+for %%p in (*) do (
+if %%~zp gtr 204800 (
+    copy "%%p" "C:\Users\%USERNAME%\Desktop\copy"
+    ren "C:\Users\%USERNAME%\Desktop\copy\%%p" "s%%p%date%_%time%.jpg"
 ) else (
-    for %%p in (*) do (
-    set folder_status=accupied
-    if %%~zp gtr 204800 (
-        copy "%%p" "C:\Users\%USERNAME%\Desktop\copy"
-        ren "C:\Users\%USERNAME%\Desktop\copy\%%p" "s%%p%date%_%time%.jpg"
-    ) else (
-        echo "insficent size"
+    echo "insficent size"
     )
 )
 )
-
 
 
 cd "C:\Users\%USERNAME%\Desktop\copy"
