@@ -1,7 +1,40 @@
-Here all my usefull code for batch all the files here are safe 
+# Spotlight Image Filter
 
-______________________________________________________________________________________________________
+A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images from the Windows Spotlight (lock screen / desktop background) cache, lets you manually select your favourites, and saves them to your Pictures\spotlight folder.
 
-Currently Have
+## Usage
 
-1)spotlight_save:-This script save the windows spotlight image that get downloaded on your pc if you enable windows spotlight this script on save the image that are strict of 16:9 of aspect ratio  and dont forget to change file and folder path according to your pc otherwise the script dont work :)
+1. Double-click the `.bat` file (or run it from an elevated Command Prompt if you hit permission issues).
+2. Wait for the filtering to complete.
+3. When Explorer opens, **delete the images you don't like**.
+4. Press **Enter** in the terminal.
+5. Your selected wallpapers will appear in **Pictures\spotlight**.
+
+## How It Works
+
+1. **Creates a temp folder** – `C:\Users\<You>\Desktop\copy` is created if it doesn't already exist.
+2. **Copies large assets** – Files in the Windows Spotlight `Assets` folder that are **larger than 200 KB** are copied to the temp folder and renamed with a date stamp + `.jpg` extension.
+3. **Filters by aspect ratio** – Each image's dimensions are read via PowerShell. Any image that is **not 16:9** is deleted.
+4. **Manual selection** – File Explorer opens on the temp folder. Browse through the remaining images and delete the ones you don't want.
+5. Create a **Pictures\spotlight** if not exists
+6. **Saves to Pictures** – All remaining `.jpg` files are copied to `C:\Users\<You>\Pictures\spotlight`.
+7. **Cleanup** – The temp folder is emptied and the script exits.
+
+## Requirements
+
+- Windows 10 / 11
+- No external dependencies (uses built-in `cmd` and `powershell`)
+
+## Notes
+
+- The Spotlight `Assets` folder contains the high-res backgrounds Windows downloads for lock screen / desktop.
+- Only images with a **16:9** aspect ratio survive the automatic filter.
+- If you want a different aspect ratio, edit the `set /a aspect_of_height` / `aspect_of_width` lines.
+
+## Files Modified
+
+|     Path      |  Action                          |
+|---------------|----------------------------------|
+| `Desktop\copy\` | Created / cleaned |
+| `Pictures\spotlight\` | Created / Receives selected images |
+| Spotlight `Assets` folder | Read-only (source) |   
