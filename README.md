@@ -13,7 +13,7 @@ A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images fro
 ## How It Works
 
 1. **Creates a temp folder** – `C:\Users\<You>\Desktop\copy` is created if it doesn't already exist.
-2. **Copies large assets** – Files in the Windows Spotlight `Assets` folder that are **larger than 200 KB** are copied to the temp folder and renamed with a date stamp + time stamp + `.jpg` extension.
+2. **Copies large assets** – Files in the Windows Spotlight `Assets` folder that are **larger than 200 KB** are copied to the temp folder and renamed with a date stamp + `.jpg` extension.
 3. **Filters by aspect ratio** – Each image's dimensions are read via PowerShell. Any image that is **not 16:9** is deleted.
 4. **Manual selection** – File Explorer opens on the temp folder. Browse through the remaining images and delete the ones you don't want.
 5. Create a **Pictures\spotlight** folder if not exists
@@ -24,7 +24,7 @@ A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images fro
 
 - Windows 10 / 11
 - No external dependencies (uses built-in `cmd` and `powershell`)
-- windows spotlight must be enabled
+- Windows spotlight must be enabled
 
 ## CHANGE THE ASPECT RATIO:
 Find the two lines in the script (search for "aspect_of_height"):
