@@ -1,4 +1,5 @@
 ::PROGRAMMER:)CHUMBERBIRAJ
+::VERSION=1.2
 @echo off
 setlocal enabledelayedexpansion
 
