@@ -16,7 +16,7 @@ A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images fro
 2. **Copies large assets** – Files in the Windows Spotlight `Assets` folder that are **larger than 200 KB** are copied to the temp folder and renamed with a date stamp + time stamp + `.jpg` extension.
 3. **Filters by aspect ratio** – Each image's dimensions are read via PowerShell. Any image that is **not 16:9** is deleted.
 4. **Manual selection** – File Explorer opens on the temp folder. Browse through the remaining images and delete the ones you don't want.
-5. Create a **Pictures\spotlight** if not exists
+5. Create a **Pictures\spotlight** folder if not exists
 6. **Saves to Pictures** – All remaining `.jpg` files are copied to `C:\Users\<You>\Pictures\spotlight`.
 7. **Cleanup** – The temp folder is emptied and the script exits.
 
