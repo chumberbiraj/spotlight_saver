@@ -24,6 +24,7 @@ A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images fro
 
 - Windows 10 / 11
 - No external dependencies (uses built-in `cmd` and `powershell`)
+- windows spotlight must be enabled
 
 ## CHANGE THE ASPECT RATIO:
 Find the two lines in the script (search for "aspect_of_height"):
