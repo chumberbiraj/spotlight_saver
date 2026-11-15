@@ -25,11 +25,34 @@ A Windows batch script by **CHUMEBR** that extracts high-quality 16:9 images fro
 - Windows 10 / 11
 - No external dependencies (uses built-in `cmd` and `powershell`)
 
+## CHANGE THE ASPECT RATIO:
+Find the two lines in the script (search for "aspect_of_height"):
+Change the last integer 
+
+       set /a aspect_of_height=!h!/9
+       set /a aspect_of_width=!w!/16
+
+   The logic: if (height / Y) == (width / X), the image is X:Y
+
+   | Ratio  | Height line       | Width line       |
+   |--------|-------------------|------------------|
+   | 16:9   | !h!/9            | !w!/16          |
+   | 4:3    | !h!/3            | !w!/4           |
+   | 21:9   | !h!/9            | !w!/21          |
+   | 1:1    | !h!/1            | !w!/1           |
+
+   Example - to use 4:3 instead of 16:9:
+       set /a aspect_of_height=!h!/3
+       set /a aspect_of_width=!w!/4
+
+NOTE: Uses integer division. Images that are close but
+not exact (e.g. 1920x1082) will still be deleted.
+
 ## Notes
 
 - The Spotlight `Assets` folder contains the high-res backgrounds Windows downloads for lock screen / desktop.
 - Only images with a **16:9** aspect ratio survive the automatic filter.
-- If you want a different aspect ratio, edit the `set /a aspect_of_height` / `aspect_of_width` lines.
+- If you want a different aspect ratio, edit the `set /a aspect_of_height` / `aspect_of_width` lines, Full guide above.
 
 ## Files Modified
 
